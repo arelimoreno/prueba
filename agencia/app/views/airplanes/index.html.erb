@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bienvenido a al central de viajes el Dorado</h1>
+<h2>lista de aviones</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Modelo</th>
+      <th>Aerolinea</th>
+      <th>Capacidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @airplanes.each do |airplane| %>
+      <tr>
+        <td><%= airplane.codigo %></td>
+        <td><%= airplane.nombre %></td>
+        <td><%= airplane.modelo %></td>
+        <td><%= airplane.aerolinea %></td>
+        <td><%= airplane.capacidad %></td>
+        <td><%= link_to 'Agregar ruta', airplane %></td>
+        <td><%= link_to 'Editar', edit_airplane_path(airplane) %></td>
+        <td><%= link_to 'Destroy', airplane, method: :delete, data: { confirm: 'esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Airplane', new_airplane_path %>

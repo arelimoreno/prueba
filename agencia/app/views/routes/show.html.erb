@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Origen:</strong>
+  <%= @route.origen %>
+</p>
+
+<p>
+  <strong>Destino:</strong>
+  <%= @route.destino %>
+</p>
+
+<p>
+  <strong>Horario salida:</strong>
+  <%= @route.horario_salida %>
+</p>
+
+<p>
+  <strong>Duracion aprox:</strong>
+  <%= @route.duracion_aprox %>
+</p>
+
+ <p><h2>
+  <strong>Aviones con la Ruta</strong></h2>
+  <table>
+  <thead>
+    <tr>
+      <th>codigo</th>
+      <th>nombre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @route.airplanes.each do |airplane| %>
+      <tr>
+        <td><%= airplane.codigo %></td>
+        <td><%= airplane.nombre %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
